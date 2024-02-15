@@ -11,5 +11,11 @@ jobs:
         - name: Install Dagger
           working-directory: .
           run: |
+            echo "Installing python3.9"
             sudo apt-get install python3.9
+            echo "Installing dagger"
             sudo pip install dagger-io
+        - name: Run Dagger
+          working-directory: ci
+          run: |
+            dagger run python main.py
