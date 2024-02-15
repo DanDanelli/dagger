@@ -16,4 +16,5 @@ jobs:
         working-directory: .
         run: |
           pwd
-          dagger run python main.py
+          ls
+          dagger run python ci/main.py
