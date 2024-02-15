@@ -14,4 +14,4 @@ jobs:
           curl -L https://dl.dagger.io/dagger/install.sh | BIN_DIR=$HOME/.local/bin sh
       - name: Run Dagger
         run: |
-          ls -ltra
+          find . -type f -name "main.py"
