@@ -15,5 +15,5 @@ jobs:
       - name: Run Dagger
         working-directory: .
         run: |
-          cd ..
+          cd ../dagger
           ls -ltra
