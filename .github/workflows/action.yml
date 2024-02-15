@@ -19,3 +19,7 @@ jobs:
       - name: Python Version
         run: |
           python --version
+      - name: Run Dagger
+        working-directory: ci
+        run: |
+          dagger run python main.py
