@@ -15,6 +15,4 @@ jobs:
       - name: Run Dagger
         working-directory: .
         run: |
-          pwd
-          ls
-          dagger run python ci/main.py
+          ls -ltra
