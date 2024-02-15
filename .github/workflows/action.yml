@@ -11,12 +11,7 @@ jobs:
       - name: Install Dagger
         run: |
           echo "Installing dagger"
-          pip install dagger-io
-
-      - name: Set PATH
-        run: |
-          echo "PATH=$PATH:$(python -m site --user-base)/bin" >> $GITHUB_ENV
-
+          curl -L https://dl.dagger.io/dagger/install.sh | BIN_DIR=$HOME/.local/bin sh
       - name: Run Dagger
         run: |
           dagger run python ci/main.py
