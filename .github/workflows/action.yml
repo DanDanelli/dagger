@@ -12,8 +12,13 @@ jobs:
           run: |
             echo "Installing dagger"
             pip install dagger-io
-        - name: Add Dagger to PATH
-          run: echo "::add-path::$(python -m site --user-base)/bin"
+        - name: Generate path.env
+          run: |
+              echo "PATH=$PATH:$(python -m site --user-base)/bin" > path.env
+        - name: Set PATH
+          run: echo "$PATH" >> $GITHUB_ENV
+          env:
+            GITHUB_PATH: ./path.env
         - name: Verify Dagger Installation
           run: dagger --version
         - name: Run Dagger
