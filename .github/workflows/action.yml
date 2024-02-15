@@ -13,6 +13,7 @@ jobs:
           echo "Installing dagger"
           curl -L https://dl.dagger.io/dagger/install.sh | BIN_DIR=$HOME/.local/bin sh
       - name: Run Dagger
-        working-directory: /home/runner/work/dagger/ci
+        working-directory: .
         run: |
+          pwd
           dagger run python main.py
