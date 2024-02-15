@@ -11,5 +11,5 @@ jobs:
         - name: Install Dagger
           working-directory: .
           run: |
-            apt-get install python3.9
-            pip install dagger-io
+            sudo apt-get install python3.9
+            sudo pip install dagger-io
