@@ -13,7 +13,7 @@ jobs:
             echo "Installing dagger"
             pip install dagger-io
         - name: Verify Dagger Installation
-          run: dagger --version
+          run: sudo dagger --version
         - name: Run Dagger
           run: |
             dagger run python ci/main.py
