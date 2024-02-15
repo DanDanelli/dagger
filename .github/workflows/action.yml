@@ -1,26 +1,22 @@
 name: Dagger Workflow
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 jobs:
   Run_Dagger:
     runs-on: ubuntu-latest
     defaults:
-        run:
-          shell: bash
+      run:
+        shell: bash
     steps:
-        - name: Install Dagger
-          run: |
-            echo "Installing dagger"
-            pip install dagger-io
-        - name: Generate path.env
-          run: |
-              echo "PATH=$PATH:$(python -m site --user-base)/bin" > path.env
-        - name: Set PATH
-          run: echo "$PATH" >> $GITHUB_ENV
-          env:
-            GITHUB_PATH: ./path.env
-        - name: Verify Dagger Installation
-          run: dagger --version
-        - name: Run Dagger
-          run: |
-            dagger run python ci/main.py
+      - name: Install Dagger
+        run: |
+          echo "Installing dagger"
+          pip install dagger-io
+
+      - name: Set PATH
+        run: |
+          echo "PATH=$PATH:$(python -m site --user-base)/bin" >> $GITHUB_ENV
+
+      - name: Run Dagger
+        run: |
+          dagger run python ci/main.py
