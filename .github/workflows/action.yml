@@ -16,6 +16,6 @@ jobs:
             echo "Installing dagger"
             sudo pip install dagger-io
         - name: Run Dagger
-          working-directory: ci
+          working-directory: ./ci
           run: |
             dagger run python main.py
