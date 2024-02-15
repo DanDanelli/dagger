@@ -12,8 +12,10 @@ jobs:
           run: |
             echo "Installing dagger"
             pip install dagger-io
+        - name: Add Dagger to PATH
+          run: echo "::add-path::$(python -m site --user-base)/bin"
         - name: Verify Dagger Installation
-          run: sudo dagger --version
+          run: dagger --version
         - name: Run Dagger
           run: |
             dagger run python ci/main.py
