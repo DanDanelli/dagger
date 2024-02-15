@@ -1,0 +1,15 @@
+name: Dagger Workflow
+on:
+    workflow_dispatch:
+jobs:
+  Run_Dagger:
+    runs-on: ubuntu-latest
+    defaults:
+        run:
+          shell: bash
+    steps:
+        - name: Install Dagger
+          working-directory: .
+          run: |
+            apt-get install python3.9
+            pip install dagger-io
