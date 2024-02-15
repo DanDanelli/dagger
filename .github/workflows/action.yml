@@ -15,6 +15,7 @@ jobs:
           echo "Installing dagger"
           curl -L https://dl.dagger.io/dagger/install.sh | BIN_DIR=$HOME/.local/bin sh
           pip install anyio
+          pip install dagger
       - name: Run Dagger
         working-directory: ci
         run: |
