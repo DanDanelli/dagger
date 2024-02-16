@@ -23,7 +23,7 @@ jobs:
           echo "Installing Dagger library"
       - name: Python Version
         run: |
-          python2 --version
+          python --version
       - name: Run Dagger
         working-directory: ci
         run: |
