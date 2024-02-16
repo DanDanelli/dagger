@@ -14,9 +14,14 @@ jobs:
         run: |
           sudo apt update
           sudo apt install python2
+      - name: Install Dagger CLI
+        run: |
+          echo "Installing Dagger CLI"
+          # Replace the following line with the actual command to install Dagger CLI
+          curl -sSL https://example.com/install-dagger-cli.sh | sh
       - name: Install Dagger
         run: |
-          echo "Installing dagger"
+          echo "Installing Dagger library"
           pip install dagger-io
           pip install anyio
           pip install dagger
