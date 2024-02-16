@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install Python 2.x
+        run: |
+          sudo apt update
+          sudo apt install python2
       - name: Install Dagger
         run: |
           echo "Installing dagger"
@@ -18,8 +22,8 @@ jobs:
           pip install dagger
       - name: Python Version
         run: |
-          python --version
+          python2 --version
       - name: Run Dagger
         working-directory: ci
         run: |
-          dagger run python main.py
+          dagger run python2 main.py
