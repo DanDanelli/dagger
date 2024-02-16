@@ -21,13 +21,10 @@ jobs:
       - name: Install Dagger
         run: |
           echo "Installing Dagger library"
-          pip install dagger-io
-          pip install anyio
-          pip install dagger
       - name: Python Version
         run: |
           python2 --version
       - name: Run Dagger
         working-directory: ci
         run: |
-          dagger run python2 main.py
+          dagger run python main.py
