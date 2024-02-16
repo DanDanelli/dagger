@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "Installing Dagger library"
           pip install anyio
-          pip install dagger
+          pip install dagger==1.3.0
       - name: Python Version
         run: |
           python --version
