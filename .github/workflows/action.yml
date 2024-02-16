@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Python 2.x
+      - name: Install Python 3.x
         run: |
           sudo apt update
-          sudo apt install python2
+          sudo apt install python3
       - name: Install Dagger CLI
         run: |
           echo "Installing Dagger CLI"
