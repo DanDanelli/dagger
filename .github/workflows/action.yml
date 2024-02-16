@@ -18,9 +18,10 @@ jobs:
         run: |
           echo "Installing Dagger CLI"
           curl -L https://dl.dagger.io/dagger/install.sh | BIN_DIR=$HOME/.local/bin sh
-      - name: Install Dagger
+      - name: Install Dagger Library
         run: |
           echo "Installing Dagger library"
+          pip install anyio
       - name: Python Version
         run: |
           python --version
