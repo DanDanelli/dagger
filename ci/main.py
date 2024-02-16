@@ -1,17 +1,24 @@
 import sys
+
 import anyio
 import dagger
-async def main():
-    config = dagger.Config(log_output=sys.stdout)
-    # initialize Dagger client
-    async with dagger.Connection(config) as client:
-        # use a python:3.11-slim container
-        # get version
-        python = (
-            client.container().from_("python:3.11-slim").with_exec(["python", "-V"])
+from dagger import dag
+
+
+async def main(args: list[str]):
+    async with dagger.connection():
+        # build container with cowsay entrypoint
+        ctr = (
+            dag.container()
+            .from_("python:alpine")
+            .with_exec(["pip", "install", "cowsay"])
+            .with_entrypoint(["cowsay"])
         )
-        # execute
-        version = await python.stdout()
-    # print output
-    print(f"Hello from Dagger and {version}")
-anyio.run(main)
+
+        # run cowsay with requested message
+        result = await ctr.with_exec(args).stdout()
+
+    print(result)
+
+
+anyio.run(main, sys.argv[1:])
