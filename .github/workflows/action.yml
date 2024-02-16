@@ -17,8 +17,7 @@ jobs:
       - name: Install Dagger CLI
         run: |
           echo "Installing Dagger CLI"
-          # Replace the following line with the actual command to install Dagger CLI
-          curl -sSL https://example.com/install-dagger-cli.sh | sh
+          curl -L https://dl.dagger.io/dagger/install.sh | BIN_DIR=$HOME/.local/bin sh
       - name: Install Dagger
         run: |
           echo "Installing Dagger library"
